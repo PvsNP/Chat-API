@@ -33,6 +33,8 @@ public class MongoManager {
 	private @Getter MongoClient client;
 	private @Getter MongoDatabase database;
 	
+        private @Getter MongoCollection massages;
+        
 	public MongoManager(String hostname, int port, String databaseName, String user, String password, String databaseAuth) {
 		this.hostname = hostname;
 		this.port = port;
@@ -51,6 +53,7 @@ public class MongoManager {
 		this.client = new MongoClient(new ServerAddress(hostname, port),list);
                 
 		this.database = client.getDatabase(databaseName);
+                massages = database.getCollection("massage");
 	}
 	
 	public void disconect(){

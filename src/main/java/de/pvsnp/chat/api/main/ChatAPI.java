@@ -5,7 +5,11 @@
  */
 package de.pvsnp.chat.api.main;
 
+import de.pvsnp.chat.api.connector.ChatClient;
+import de.pvsnp.chat.api.connector.ChatServer;
+import de.pvsnp.chat.mongodb.Massage;
 import de.pvsnp.chat.mongodb.MongoManager;
+import lombok.Getter;
 
 /**
  *
@@ -16,17 +20,29 @@ public class ChatAPI {
     private static ChatAPI instance;
     private MongoManager manager;
     
+    private @Getter ChatClient cc;
+    private @Getter ChatServer cs;
+    
+    private int port = 8111;
+    private String ip = "127.0.0.1";
+    
     public static void main(String[] args){
         instance = new ChatAPI();
         instance.load();
     }
     
-    protected ChatAPI getInstace(){
+    public static ChatAPI getInstace(){
         return instance;
     }
     private void load(){
        registerMongoDB();
+       cc = new ChatClient(port, ip);
+       cs = new ChatServer(port);
         
+    }
+    
+    public Massage getMassage(String key){
+        return  Massage.getMassage(this, key);
     }
     
      public void registerMongoDB(){      
