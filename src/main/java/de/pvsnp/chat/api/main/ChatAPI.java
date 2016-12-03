@@ -46,7 +46,7 @@ public class ChatAPI {
     }
     
      public void registerMongoDB(){      
-        manager = new MongoManager("127.0.0.1", 27017, "Chatapi","Letsplaybar","mama40", "admin");
+        manager = new MongoManager("127.0.0.1", 27017, "Chatapi","user","pw", "admin");
         manager.connect();
     }
      
