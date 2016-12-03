@@ -11,4 +11,17 @@ package de.pvsnp.chat.api.main;
  */
 public class ChatAPI {
     
+    private static ChatAPI instance;
+    
+    public static void main(String[] args){
+        instance = new ChatAPI();
+        instance.load();
+    }
+    
+    protected ChatAPI getInstace(){
+        return instance;
+    }
+    private void load(){
+       
+    }
 }
