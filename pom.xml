@@ -22,5 +22,10 @@
     <artifactId>mongo-java-driver</artifactId>
     <version>3.4.0</version>
 </dependency>
+<dependency>
+  <groupId>com.contentful.java</groupId>
+  <artifactId>java-sdk</artifactId>
+  <version>7.2.0</version>
+</dependency>
 </dependencies>
 </project>
